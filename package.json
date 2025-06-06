@@ -1,0 +1,25 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "This is test react project",
+   "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shraddhakandale/learn-react.git"
+  },
+  "author": "Shraddha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shraddhakandale/learn-react/issues"
+  },
+  "homepage": "https://github.com/shraddhakandale/learn-react#readme",
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

@@ -63,6 +63,6 @@ body{
     object-fit: cover;
 }
 
-.searchbar, .filter-btn {
+.filter-btn {
     margin: 10px;
 }

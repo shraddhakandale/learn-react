@@ -824,4 +824,4 @@ const resObj =[
     }
     ];
     
-export default resObj;
+export default resObj; 

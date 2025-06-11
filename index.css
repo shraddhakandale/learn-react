@@ -34,7 +34,7 @@ body{
     gap: 32px;
 }
 
-.res-container {
+.res-container, .shimmer-container {
     max-width: 1280px;
     margin: auto;
     display: flex;
@@ -43,7 +43,7 @@ body{
     justify-content: center;
 }
 
-.res-card {
+.res-card, .shimmer-card {
     width: 220px;
     background-color: rgb(246, 244, 244);
     display: flex;
@@ -63,6 +63,17 @@ body{
     object-fit: cover;
 }
 
-.filter-btn {
+.search-filter-bar {
     margin: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.searchbar {
+    display: flex;
+    gap: 5px;
+}
+
+.shimmer-card {
+    height: 240px;
 }

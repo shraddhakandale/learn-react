@@ -36,12 +36,16 @@ body{
 
 .res-container, .shimmer-container {
     max-width: 1280px;
-    margin: auto;
+    margin: 40px auto;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.res-card > h3,h4,h5 {
+    margin: 0;
+} 
 
 .res-card, .shimmer-card {
     width: 220px;

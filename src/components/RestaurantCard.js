@@ -7,11 +7,11 @@ const RestaurantCard = ({resData}) => {
             <div className="res-card-img">
                 <img src={CDN_URL + resData.info.cloudinaryImageId} alt="card-image"/>
             </div>
-            <div className="res-name">{name}</div>
-            <div className="res-cuisine">{cuisines.join(", ")}</div>
-            <div className="res-cost-for-two">{costForTwo}</div>
-            <div className="res-rating">{avgRatingString}</div>
-            <div className="res-delivery-time">{sla.slaString}</div>
+            <div className="res-name"><h3>{name}</h3></div>
+            <div className="res-cuisine"><h4>{cuisines.join(", ")}</h4></div>
+            <div className="res-cost-for-two"><h5>{costForTwo}</h5></div>
+            <div className="res-rating"><h5>{avgRatingString}</h5></div>
+            <div className="res-delivery-time"><h5>{sla.slaString}</h5></div>
         </div>
     )
 }

@@ -18,13 +18,13 @@ const Body = () => {
     const json = await data.json();
     // optional chaining
     setresList(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRes(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    console.log(json.data.cards[1]);
-    console.log(json);
+    // console.log(json.data.cards[1]);
+    // console.log(json);
   };
 
   // Conditional rendering

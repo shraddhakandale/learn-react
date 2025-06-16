@@ -1,7 +1,12 @@
+import User from "./User";
+import UserClass from "./UserClass";
 const About = () => {
-    return (
-        <h1>This is about us page</h1>
-    )
-}
+  return (
+    <div>
+      <User name={"Shraddha function prop"} />
+      <UserClass name={"Shraddha class prop"} />
+    </div>
+  );
+};
 
 export default About;

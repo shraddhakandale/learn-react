@@ -1,4 +1,10 @@
-body{
+@import "tailwindcss";
+
+body {
+    margin: 0;
+}
+
+/* body{
     margin: 0;
 }
 
@@ -86,4 +92,4 @@ body{
     border: 1px solid gray;
     margin: 20px;
     padding: 20px;
-}
+} */

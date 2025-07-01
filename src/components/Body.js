@@ -1,12 +1,17 @@
-import RestaurantCard from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   const [resList, setresList] = useState([]);
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const {loggedInUser, setUserName} = useContext(userContext);
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -35,23 +40,32 @@ const Body = () => {
   //   )
   // }
 
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks like you are offline! please check your internet connection.
+      </h1>
+    );
+  }
+
   return resList.length === 0 ? (
     <Shimmer />
   ) : (
     <div>
-      <div className="body">
-        <div className="search-filter-bar">
-          <div className="searchbar">
+      <div className="body flex flex-col gap-8 px-4">
+        <div className="search-filter-bar h-8 flex gap-4">
+          <div className="searchbar flex gap-4">
             <input
               type="text"
-              className="searchbox"
+              className="outline rounded p-2 bg-white"
               value={searchText}
               onChange={(e) => {
                 setSearchText(e.target.value);
               }}
             />
             <button
-              className="search-btn"
+              className="search-btn outline px-4 rounded bg-orange-500 text-white flex items-center"
               onClick={() => {
                 setFilteredRes(
                   resList.filter((res) =>
@@ -62,30 +76,45 @@ const Body = () => {
                 );
               }}
             >
-              Search
+              <span>Search</span>
             </button>
           </div>
           <div className="filter-btn">
             <button
+              className="outline h-8 px-4 rounded bg-orange-500 text-white flex items-center"
               onClick={() => {
                 const filteredList = resList.filter(
-                  (res) => res.info.avgRating > 4
+                  (res) => res.info.avgRating > 4.5
                 );
-                setresList(filteredList);
+                setFilteredRes(filteredList);
               }}
             >
               Top rated restaurants
             </button>
           </div>
+          <div>
+          <input
+              type="text"
+              className="outline rounded p-2 bg-white"
+              value={loggedInUser}
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
+            />
+          </div>
         </div>
-        <div className="res-container">
+        <div className="res-container mb-8 flex flex-wrap max-w-[1280px] gap-8 mx-auto justify-center">
           {filteredRes.map((restaurant) => {
             return (
               <Link
                 key={restaurant.info.id}
                 to={"/restaurants/" + restaurant.info.id}
               >
-                <RestaurantCard resData={restaurant} />
+                {restaurant.info.aggregatedDiscountInfoV3?.discountTag ? (
+                  <RestaurantCardPromoted resData={restaurant} />
+                ) : (
+                  <RestaurantCard resData={restaurant} />
+                )}
               </Link>
             );
           })}

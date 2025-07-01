@@ -8,8 +8,8 @@ const RestaurantCategory = ({ categoryData, showItems, setShowIndex}) => {
   }
   return (
     <div>
-      <div className="flex flex-col p-4 bg-orange-200 rounded" onClick={handleClick}>
-        <div className="w-full flex justify-between">
+      <div className="flex flex-col p-4 bg-orange-200 rounded">
+        <div  onClick={handleClick} className="w-full flex justify-between">
           <span className="text-lg font-bold">
             {categoryData.title} ({categoryData.itemCards.length})
           </span>

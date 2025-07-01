@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/shraddhakandale/learn-react#readme",
   "devDependencies": {
-    "parcel": "^2.15.2"
+    "@tailwindcss/postcss": "^4.1.10",
+    "parcel": "^2.15.2",
+    "tailwindcss": "^4.1.10"
   },
   "dependencies": {
     "react": "^19.1.0",

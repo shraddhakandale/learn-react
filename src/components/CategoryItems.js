@@ -1,7 +1,11 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import { addItems } from "../utils/cartSlice";
 
 const CategoryItems = ({ items }) => {
 //   console.log(items);
+
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-col gap-4 bg-orange-100 p-4 rounded my-4">
       {items.map((item) => (
@@ -19,7 +23,11 @@ const CategoryItems = ({ items }) => {
           </div>
           <div className="w-2/12 h-full rounded-xl flex flex-col gap-2">
             <img className="w-full rounded-xl" src={CDN_URL + item?.card?.info?.imageId} />
-            <button className="font-bold bg-orange-500 rounded-xl text-white">Add +</button>
+            <button onClick={()=>{
+              // dispatch an action
+              dispatch(addItems(item));
+
+            }} className="font-bold bg-orange-500 rounded-xl text-white">Add +</button>
           </div>
         </div>
       ))}
